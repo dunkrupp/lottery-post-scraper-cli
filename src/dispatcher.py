@@ -1,18 +1,9 @@
-import typer
-
 from src.lottery_post.command import Command
 
-app = typer.Typer()
-
-@app.command()
-def results():
-    pass # @todo: implement
-
-def predictions():
-    pass # @todo: implement
 
 def get_command_handler(command: str):
-    return type(command)
+    return type(command.capitalize())
+
 
 def route(command: str):
     """
@@ -32,5 +23,7 @@ def route(command: str):
     Raises:
     AttributeError: If the 'run' method is not found in the command handler class.
     """
+    print(command)
     command_class = get_command_handler(command)
+    print(command_class)
     return getattr(command_class, Command.RUN_METHOD)
