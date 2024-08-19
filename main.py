@@ -1,25 +1,26 @@
-from typing import Annotated
-
-import src.dispatcher as dispatcher
 import typer
 
 
-app = typer.Typer(no_args_is_help=True)
+app = typer.Typer(
+    no_args_is_help=True,
+    pretty_exceptions_enable=True,
+    rich_markup_mode='rich'
+)
 
 
 @app.command()
 def predictions():
-    pass  # @todo: implement
+    return 'predictions data'
 
 
 @app.command()
 def pull():
-    pass  # @todo: implement
+    return 'pull data'
 
 
 @app.command()
 def results():
-    pass  # @todo: implement
+    return 'results data'
 
 
 # https://typer.tiangolo.com/tutorial/printing/
